@@ -1,0 +1,13 @@
+/ {
+    macros {
+        lg_y_num_macro: lg_y_num_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LGUI &kp Y>
+                , <&macro_press &kp LGUI &mo NUM>
+                , <&macro_release &kp LGUI>
+                ;
+        };
+    };
+};
