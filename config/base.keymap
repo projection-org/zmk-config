@@ -66,6 +66,12 @@ MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
 MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
 MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
 
+
+// Define the custom HRM behavior
+MAKE_HRM(hmr_lg_num, &kp LGUI, &mo NUM, KEYS_L THUMBS)  // LGUI and NUM layer on hold
+MAKE_HRM(hmr_lg_y_num, &hmr_lg_num, &kp LG(Y), KEYS_R THUMBS)  // LG(Y) on tap, hmr_lg_num on hold
+
+
 /* Nav cluster */
 
 // long-tap action on hold, short-tap action on all interrupts
@@ -280,7 +286,7 @@ ZMK_LAYER(base,
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
    &kp TAB   &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G           X_MM     &kp M         &hmr RSHFT N  &hmr RCTRL E  &hmr RALT I   &hmr RGUI O    &kp DEL
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-  &kp LGUI   &kp Z         &kp X         &kp C         &kp D         &kp V           X_MB     &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &lg_y_num
+  &kp LGUI   &kp Z         &kp X         &kp C         &kp D         &kp V           X_MB     &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &hmr_lg_y_num
 //├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
   &kp LG(O)                                            &lt_spc NAV 0 &lt FN RET      X_MH     SMART_NUM     &smart_shft                                             &kp LG(GRAVE) 
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
