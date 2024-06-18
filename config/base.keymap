@@ -140,7 +140,6 @@ ZMK_BEHAVIOR(lg_y_num, hold_tap,
     bindings = <&kp LG(Y)>, <&mo NUM &kp LGUI>;
 )
 
-
 // Alt+Tab swapper, requires PR #1366
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
