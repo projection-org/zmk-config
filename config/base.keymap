@@ -66,10 +66,21 @@ MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
 MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
 MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
 
+// Define the custom HRM behavior for holding `LGUI` and activating `NUM` layer
+MAKE_HRM(hmr_lg_num, &kp LGUI, &mo NUM, KEYS_L THUMBS)
 
 // Define the custom HRM behavior
 MAKE_HRM(hmr_lg_num, &kp LGUI, &mo NUM, KEYS_L THUMBS)  // LGUI and NUM layer on hold
 MAKE_HRM(hmr_lg_y_num, &hmr_lg_num, &kp LG(Y), KEYS_R THUMBS)  // LG(Y) on tap, hmr_lg_num on hold
+
+
+ZMK_HOLD_TAP(hmr_lg_y_num, 
+    flavor = "balanced"; 
+    tapping-term-ms = <280>; 
+    quick-tap-ms = <QUICK_TAP_MS>; 
+    require-prior-idle-ms = <150>; 
+    bindings = <&kp LG(Y)>, <&hmr_lg_num>;
+)
 
 
 /* Nav cluster */
