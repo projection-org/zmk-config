@@ -133,17 +133,11 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
 /* Custom behaviors */
 
 // infinity macro
-ZMK_BEHAVIOR(lg_num_hold, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <200>;
-    bindings = <&kp LGUI>, <&mo NUM>;
-)
 ZMK_BEHAVIOR(lg_y_num, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <200>;
-    bindings = <&kp LG(Y)>, <&lg_num_hold>;
+    bindings = <&kp LG(Y)>, <&kp LGUI &mo NUM>;
 )
 
 // Alt+Tab swapper, requires PR #1366
