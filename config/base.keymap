@@ -19,7 +19,7 @@
 
 #include "combos.dtsi"  // requires layer aliases
 #include "macro.dtsi"  // custom macros
-#include "mouse.dtsi"
+// #include "mouse.dtsi"
 #include "extra_keys.h"
 
 #define XXX &none
