@@ -1,10 +1,10 @@
 manifest:
   remotes:
-    - name: projection-org
-      url-base: https://github.com/projection-org
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: projection-org
+      remote: urob
       revision: main
       import: app/west.yml
   self:
