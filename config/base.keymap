@@ -15,11 +15,10 @@
 #define FN 3
 #define SYS 4
 #define SYM 5
-#define MOUSE 6
 
 #include "combos.dtsi"  // requires layer aliases
 #include "macro.dtsi"  // custom macros
-#include "mouse.dtsi"
+
 #include "extra_keys.h"
 
 #define XXX &none
@@ -100,7 +99,7 @@ ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
 MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
 MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
-/* Caps-word, num-word and smart-mouse */
+/* Caps-word, num-word */
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_MOD_MORPH(smart_shft,
@@ -127,13 +126,6 @@ ZMK_TAP_DANCE(num_dance,
     layers = <NUM>;
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 };
-
-// smart-mouse, requires PR #1366
-ZMK_TRI_STATE(smart_mouse,
-    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <LT1 LT3 RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 RB1 RB2 RB3 RH0 RH1>;
-    ignored-layers = <MOUSE>;
-)
 
 
 /* Custom behaviors */
@@ -209,7 +201,7 @@ ZMK_TAP_DANCE(copy_cut,
 )
 
 // misc aliases
-#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
+#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
 #define DSK_PREV    &hmr LCTRL LG(LC(LEFT))   // previous desktop
 #define DSK_NEXT    &hmr LALT LG(LC(RIGHT)) // next desktop
 #define PIN_WIN     &kp LG(LC(LS(Q)))        // pin window across desktops
@@ -295,16 +287,5 @@ ZMK_LAYER(SYM,
 //╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
 )
 
-ZMK_LAYER(mouse,
-//╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    ___      ___           ___           ___           ___           ___            X_MT     U_WH_L        U_WH_U        U_MS_U         U_WH_D       U_WH_R          ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___      ___           ___           ___           ___           ___            X_MM     ___           U_MS_L        U_MS_D         U_MS_R       ___             ___
-//├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    ___      ___           ___           ___           ___           ___            X_MB     ___           &mkp MB4      &mkp MCLK      &mkp MB5     ___             ___
-//├──────┤ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├──────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ├──────┤
-    ___                                                ___           ___            X_MH    &mkp LCLK      &mkp RCLK                                                 CANCEL
-//╰──────╯                                           ╰─────────────┴─────────────╯ ╰──────╯ ╰─────────────┴─────────────╯                                           ╰──────╯
-)
 
 /* vim: set ft=c tw=174: */
