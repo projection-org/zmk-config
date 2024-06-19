@@ -1,6 +1,6 @@
 manifest:
   remotes:
-    - name: urob
+    - name: projection-org
       url-base: https://github.com/projection-org
   projects:
     - name: zmk
